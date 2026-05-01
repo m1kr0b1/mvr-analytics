@@ -1,0 +1,23 @@
+# Database
+*.db
+*.sqlite3
+
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+*.json
