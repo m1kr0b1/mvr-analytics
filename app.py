@@ -71,7 +71,7 @@ def run_sync_streaming():
         from database import init_database
         
         settings = get_settings()
-        log("🚀 Покренување синхронизација...")
+        log("🚀 Синхронизирам")
         
         venv_python = os.path.join(os.path.dirname(__file__), '.venv', 'bin', 'python')
         
@@ -93,7 +93,7 @@ def run_sync_streaming():
                         action = parts[1]
                         detail = "|".join(parts[2:])
                         if action == "START":
-                            log(f"Покренување...", "progress")
+                            log(f"Подигам систем...", "progress")
                         elif action == "INDEX":
                             log(f"Најдени {detail} билтени", "progress")
                         elif action == "PROGRESS":
@@ -206,11 +206,11 @@ def main():
             st.divider()
             col1, col2 = st.columns(2)
             with col1:
-                st.subheader(t('nav_incidents', lang) + " по " + t('city_label', lang))
+                st.subheader("Инциденти по град")
                 if not city_counts.empty:
                     st.bar_chart(city_counts.set_index('location_city'))
             with col2:
-                st.subheader(t('nav_bulletins', lang) + " — статус")
+                st.subheader("Статус на билтени")
                 if not status_counts.empty:
                     st.bar_chart(status_counts.set_index('status'))
         except Exception as e:
